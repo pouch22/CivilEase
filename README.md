@@ -3,9 +3,9 @@
 CivilEase는 학생과 관리자 간의 민원 처리를 돕는 Java 프로그램입니다.
 ## 개발 환경
 - **Java SDK**: JDK 25.0.2 (OpenJDK Temurin)
-- **Database**: MySQL 9.7 LTX, MySQL WorkBench 8.0 CE
+- **Database**: [MySQL 9.7 LTS](https://dev.mysql.com/downloads/mysql/), [MySQL WorkBench 8.0 CE](https://dev.mysql.com/downloads/workbench/)
 - **IDE**: Eclipse 2026-03 (4.39.0)
-- **library**: JDBC mysql-connector-j-9.7.0
+- **library**: [JDBC mysql-connector-j-9.7.0](https://dev.mysql.com/downloads/connector/j/)
 
 ## 구동 방법
 
