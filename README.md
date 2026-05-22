@@ -35,9 +35,9 @@ git clone https://github.com/pouch22/CivilEase.git
 ### 4. 실행
 - `src/com/civilease/view/LoginFrame.java` 파일을 실행(Run as Java Application)하여 프로그램을 시작합니다.
 
-## 👥 초기 계정 정보
+## 초기 계정 정보
 - **관리자**: `admin` / `admin123`
 - **학생**: `20240001` / `020505`
 
 ---
-이 프로젝트는 KNU Java 프로그래밍 과제로 제작되었습니다.
+
