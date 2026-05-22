@@ -1,7 +1,6 @@
 # CivilEase
 
-CivilEase는 학생과 관리자 간의 민원 처리를 돕는 Java 기반 데스크톱 애플리케이션입니다.
-
+CivilEase는 학생과 관리자 간의 민원 처리를 돕는 Java 프로그램입니다.
 ## 개발 환경
 - **Java SDK**: JDK 25.0.2 (OpenJDK Temurin)
 - **Database**: MySQL 9.7 LTX, MySQL WorkBench 8.0 CE
