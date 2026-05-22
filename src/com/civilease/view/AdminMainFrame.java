@@ -40,7 +40,7 @@ public class AdminMainFrame extends JFrame {
         
      // 창 아이콘
         try {
-            ImageIcon frameIcon = new ImageIcon("src/resources/images/ui/KNU_LOGO/background_zero/LOGO_3.png");    
+            ImageIcon frameIcon = new ImageIcon(getClass().getResource("/resources/images/ui/KNU_LOGO/background_zero/LOGO_3.png"));    
             setIconImage(frameIcon.getImage());
         } catch (Exception e) {
             System.out.println("없는 파일");
@@ -108,7 +108,7 @@ public class AdminMainFrame extends JFrame {
         // 로그아웃 버튼 추가
         JButton logoutBtn = new JButton("로그아웃");
         try {
-            ImageIcon logoutIcon = new ImageIcon("src/resources/images/ui/logout_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png");
+            ImageIcon logoutIcon = new ImageIcon(getClass().getResource("/resources/images/ui/logout_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png"));
             logoutBtn.setIcon(logoutIcon);
         } catch (Exception e) {
             System.out.println("로그아웃 아이콘 로드 실패");

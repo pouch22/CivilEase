@@ -28,7 +28,7 @@ public class RegisterFrame extends JFrame {
         
      // 창 아이콘
         try {
-            ImageIcon frameIcon = new ImageIcon("src/resources/images/ui/KNU_LOGO/background_zero/LOGO_3.png");    
+            ImageIcon frameIcon = new ImageIcon(getClass().getResource("/resources/images/ui/KNU_LOGO/background_zero/LOGO_3.png"));    
             setIconImage(frameIcon.getImage());
         } catch (Exception e) {
             System.out.println("없는 파일");

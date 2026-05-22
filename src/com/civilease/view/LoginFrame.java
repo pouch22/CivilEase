@@ -29,7 +29,7 @@ public class LoginFrame extends JFrame {
 
         // 창 아이콘
         try {
-            ImageIcon frameIcon = new ImageIcon("src/resources/images/ui/KNU_LOGO/background_zero/LOGO_3.png");    
+            ImageIcon frameIcon = new ImageIcon(getClass().getResource("/resources/images/ui/KNU_LOGO/background_zero/LOGO_3.png"));    
             setIconImage(frameIcon.getImage());
         } catch (Exception e) {
             System.out.println("없는 파일");
@@ -69,7 +69,7 @@ public class LoginFrame extends JFrame {
         
      // 경북대 로고 
         try {
-           ImageIcon icon = new ImageIcon("src/resources/images/ui/KNU_LOGO/background_zero/LOGO_2.png");
+           ImageIcon icon = new ImageIcon(getClass().getResource("/resources/images/ui/KNU_LOGO/background_zero/LOGO_2.png"));
            Image img = icon.getImage().getScaledInstance(300, 40, Image.SCALE_SMOOTH);
            JLabel iconLabel = new JLabel(new ImageIcon(img), JLabel.CENTER);
            
