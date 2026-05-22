@@ -1,16 +1,42 @@
 # CivilEase
 
-CivilEase 프로젝트입니다.
+CivilEase는 학생과 관리자 간의 민원 처리를 돕는 Java 기반 데스크톱 애플리케이션입니다.
 
-## 프로젝트 설명
-(여기에 프로젝트에 대한 설명을 적어주세요.)
+## 🛠 필수 준비물
+- **Java SDK**: JDK 17 이상 권장
+- **Database**: MySQL Server
+- **IDE**: Eclipse (또는 IntelliJ, VS Code)
 
-## 기술 스택
-- Java
-- MySQL
-- JDBC
+## 🚀 구동 방법 (다른 컴퓨터에서 실행 시)
 
-## 설치 및 실행 방법
-1. 이 저장소를 클론합니다.
-2. `lib/` 폴더의 MySQL 커넥터를 라이브러리에 추가합니다.
-3. 데이터베이스 스키마를 설정합니다 (`docs/design/schema.sql` 참고).
+### 1. 소스 코드 가져오기
+터미널(또는 Git Bash)에서 아래 명령어를 입력하여 프로젝트를 클론합니다.
+```bash
+git clone https://github.com/pouch22/CivilEase.git
+```
+
+### 2. 데이터베이스 설정 (MySQL)
+1. MySQL에 접속합니다.
+2. `docs/design/schema.sql` 파일의 내용을 복사하여 실행하거나, 아래 명령어로 스키마를 생성합니다.
+   ```sql
+   -- 프로젝트 루트의 docs/design/schema.sql 참고
+   SOURCE [파일경로]/schema.sql;
+   ```
+3. `src/com/civilease/util/DBConnection.java` 파일에서 본인의 MySQL **ID(root)**와 **비밀번호**로 수정합니다.
+
+### 3. 프로젝트 라이브러리 추가 (Eclipse 기준)
+이 프로젝트는 MySQL 연결을 위해 JDBC 드라이버가 필요합니다.
+1. Eclipse에서 프로젝트를 Import 합니다.
+2. 프로젝트 우클릭 -> **Build Path** -> **Configure Build Path** 선택
+3. **Libraries** 탭 -> **Classpath** 선택 -> **Add JARs** 클릭
+4. 프로젝트 내의 `lib/mysql-connector-j-9.7.0.jar` 파일을 선택하고 적용합니다.
+
+### 4. 실행
+- `src/com/civilease/view/LoginFrame.java` 파일을 실행(Run as Java Application)하여 프로그램을 시작합니다.
+
+## 👥 초기 계정 정보
+- **관리자**: `admin` / `admin123`
+- **학생**: `20240001` / `020505`
+
+---
+이 프로젝트는 KNU Java 프로그래밍 과제로 제작되었습니다.
