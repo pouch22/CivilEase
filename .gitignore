@@ -1,0 +1,22 @@
+# Compiled class files
+bin/
+*.class
+
+# Eclipse metadata
+.metadata/
+.settings/
+.classpath
+.project
+
+# Log files
+*.log
+
+# External libraries (if you prefer to manage them differently, but for now we ignore the folder you extracted)
+mysql-connector-j-9.7.0/
+
+# User uploads
+uploads/
+
+# OS specific files
+.DS_Store
+Thumbs.db

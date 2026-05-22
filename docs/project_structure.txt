@@ -1,0 +1,45 @@
+# CivilEase 프로젝트 구조 및 클래스 명세서
+
+## 1. 개요
+CivilEase 프로젝트는 **MVC (Model-View-Controller) 패턴**을 기반으로 설계되었으며, 자바 스윙(Swing)과 MySQL을 연동한 민원 관리 시스템입니다.
+
+---
+
+## 2. 패키지 및 클래스 상세 설명
+
+### 📂 `com.civilease.util` (유틸리티)
+시스템의 공통 기능 및 설정을 담당합니다.
+*   **`DBConnection.java`**: JDBC를 사용하여 MySQL 데이터베이스와의 연결을 설정하고 관리하는 Singleton 클래스입니다.
+
+### 📂 `com.civilease.model` (데이터 모델 / DTO)
+시스템에서 사용되는 데이터의 구조와 상태를 정의합니다.
+*   **`User.java`**: 사용자(학생/관리자)의 정보를 담는 객체입니다. (ID, 이름, 학과, 역할 등)
+*   **`Complaint.java`**: 민원 사항의 모든 정보를 담는 객체입니다. (제목, 내용, 상태, 관리자 답변, 첨부파일 경로 등)
+*   **`UserRole.java`**: 사용자의 권한(학생/관리자)을 구분하는 Enum입니다.
+*   **`Department.java`**: 소속 학과(플솦, 심컴)를 정의하는 Enum입니다.
+*   **`Category.java`**: 민원 카테고리(장학, 시설물 등)를 정의하는 Enum입니다.
+*   **`ComplaintStatus.java`**: 민원의 처리 단계(접수대기, 처리 중, 완료 등)를 정의하는 Enum입니다.
+
+### 📂 `com.civilease.dao` (데이터 접근 객체 / Controller 역할)
+데이터베이스와 통신하며 비즈니스 로직을 수행합니다.
+*   **`UserDAO.java`**: 사용자 회원가입, ID 중복 체크, 로그인 인증 쿼리를 처리합니다.
+*   **`ComplaintDAO.java`**: 민원의 등록, 전체/개별 조회, 상태 및 답변 수정, 삭제(취소) 등 핵심 CRUD 로직을 담당합니다. (관리자 조회 시 학생 이름 JOIN 처리 포함)
+
+### 📂 `com.civilease.view` (사용자 인터페이스 / View)
+사용자에게 보여지는 GUI 화면을 구성하고 이벤트를 처리합니다.
+*   **`LoginFrame.java`**: 프로그램의 시작점입니다. 학번과 생년월일을 통해 로그인을 처리하고 권한에 맞는 메인 화면으로 연결합니다.
+*   **`RegisterFrame.java`**: 신규 학생 회원가입을 위한 입력 폼을 제공합니다.
+*   **`StudentMainFrame.java`**: 학생용 메인 화면으로, 본인의 민원 현황 리스트(JTable)와 작성/취소/새로고침 기능을 제공합니다.
+*   **`AdminMainFrame.java`**: 관리자용 메인 대시보드입니다. 전체 민원을 조회하며 카테고리/상태별 필터링 및 정렬 기능을 포함합니다.
+*   **`ComplaintFormFrame.java`**: 새로운 민원을 작성하는 창입니다. 제목, 내용 입력 및 파일 첨부(PNG/PDF)가 가능합니다.
+*   **`ComplaintDetailFrame.java`**: 특정 민원의 상세 내용과 관리자의 답변을 확인하는 창입니다. 첨부파일 열람 기능을 포함합니다.
+*   **`ComplaintEditFrame.java`**: 관리자가 '보완필요'로 설정한 민원을 학생이 수정할 수 있게 해주는 전용 폼입니다.
+*   **`AdminProcessFrame.java`**: 관리자가 민원을 확인하고 상태 변경 및 답변을 작성하여 저장하는 창입니다.
+
+---
+
+## 3. 핵심 기술 요약
+1.  **Swing GUI**: JFrame, JPanel, JTable, JComboBox 등 다양한 컴포넌트 활용.
+2.  **JDBC 연동**: PreparedStatement를 사용한 보안 강화된 쿼리 실행.
+3.  **File I/O**: `java.nio.file`을 활용한 서버측(uploads 폴더) 파일 복사 및 저장.
+4.  **Enum 활용**: 시스템 전반의 상태값을 상수로 관리하여 코드의 안정성과 가독성 확보.
