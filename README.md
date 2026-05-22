@@ -2,12 +2,13 @@
 
 CivilEase는 학생과 관리자 간의 민원 처리를 돕는 Java 기반 데스크톱 애플리케이션입니다.
 
-## 🛠 필수 준비물
-- **Java SDK**: JDK 17 이상 권장
-- **Database**: MySQL Server
-- **IDE**: Eclipse (또는 IntelliJ, VS Code)
+## 개발 환경
+- **Java SDK**: JDK 25.0.2 (OpenJDK Temurin)
+- **Database**: MySQL 9.7 LTX, MySQL WorkBench 8.0 CE
+- **IDE**: Eclipse 2026-03 (4.39.0)
+- **library**: JDBC mysql-connector-j-9.7.0
 
-## 🚀 구동 방법 (다른 컴퓨터에서 실행 시)
+## 구동 방법
 
 ### 1. 소스 코드 가져오기
 터미널(또는 Git Bash)에서 아래 명령어를 입력하여 프로젝트를 클론합니다.
