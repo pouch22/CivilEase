@@ -125,7 +125,7 @@ public class LoginFrame extends JFrame {
 
         User user = userDAO.login(id, pw);
         if (user != null) {
-            JOptionPane.showMessageDialog(this, user.getName() + "님 환영합니다! (" + user.getRole() + ")");
+            JOptionPane.showMessageDialog(this, user.getName() + "님 환영합니다!");
             this.dispose(); // 현재 창 닫기
             
             if (user.getRole() == UserRole.ADMIN) {
@@ -141,9 +141,24 @@ public class LoginFrame extends JFrame {
     public static void main(String[] args) {
         // Swing UI는 Event Dispatch Thread(EDT)에서 실행해야 안전하다.
     	// 여러 Thread가 ui을 그릴려고하면 오류가 발생할 수 있어서 스윙은 EDT라는 Thread를 쓴다.
-    	// 아래 코드는 main이 이 일을 하지말고 EDT에게 넘기라는 뜻
-        SwingUtilities.invokeLater(() -> {
-            new LoginFrame().setVisible(true);
-        });
+    	// 아래 코드는 로그인 창 띄우는걸 EDT에게 넘기라는 뜻
+
+    	// 쓰레드
+    	// 인터페이스 Runnable의 run 메소드를 재정의
+    	// new Runnable() 익명 클래스 생성
+    	// run을 바로 쓰는 이유는 새로운 쓰레드를 만드는게 아니라 이미 있는 EDT라는 스레드에게 나중에 일해라는 뜻이기에
+    	
+    	// System.out.print(Thread.currentThread().getName());
+    	// 출력 main
+    	SwingUtilities.invokeLater(new Runnable() { 
+    		// run 메소드 재정의
+    	    @Override
+    	    public void run() {
+    	    	// 창 띄우기
+    	    	// System.out.print(Thread.currentThread().getName());
+    	    	// 출력 AWT-EventQueue-0
+    	        new LoginFrame().setVisible(true);
+    	    }
+    	});
     }
 }

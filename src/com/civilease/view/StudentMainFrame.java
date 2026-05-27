@@ -27,7 +27,7 @@ public class StudentMainFrame extends JFrame {
     private void initUI() {
         String deptName = (currentUser.getDepartment() != null) ? currentUser.getDepartment().getName() : "소속 없음";
         setTitle("CivilEase - 학생 메인 (" + currentUser.getName() + "님 / " + deptName + ")");
-        setSize(950, 500); // 가로 배치에 맞춰 창 너비를 950으로 넉넉하게 조정했습니다.
+        setSize(950, 500); 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         
@@ -42,14 +42,14 @@ public class StudentMainFrame extends JFrame {
         JPanel mainPanel = new JPanel(new BorderLayout(10, 10));
         mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        // 상단 영역 전체를 감싸는 메인 패널
+        // 메인 패널
         JPanel topPanel = new JPanel(new BorderLayout());
         
-        // 1. 환영 메시지 생성
+        //
         JLabel welcomeLabel = new JLabel(currentUser.getName() + "님의 민원 현황입니다.");
         welcomeLabel.setFont(new Font("맑은 고딕", Font.BOLD, 16));
         
-        // 2. 내 정보 패널 (2행 2열 격자 구조)
+        // 내 정보 패널 (2행 2열 격자 구조)
         JPanel userInfoPanel = new JPanel(new GridLayout(2, 2, 15, 5));
         userInfoPanel.setBorder(BorderFactory.createTitledBorder("내 정보"));
         
@@ -63,12 +63,11 @@ public class StudentMainFrame extends JFrame {
         userInfoPanel.add(deptLabel);
         userInfoPanel.add(roleLabel);
         
-        // 3. 왼쪽 조립 영역: FlowLayout을 사용하여 환영 메시지 바로 오른쪽에 내 정보 배치
+        // 왼쪽 조립 영역: FlowLayout을 사용하여 환영 메시지 바로 오른쪽에 내 정보 배치
         JPanel leftPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 20, 0));
         leftPanel.add(welcomeLabel);
         leftPanel.add(userInfoPanel);
-        
-        // 4. 오른쪽 버튼 패널 구성
+       
         JButton writeBtn = new JButton("새 민원 작성");
         JButton cancelBtn = new JButton("민원 취소");
         JButton refreshBtn = new JButton("새로고침");
@@ -86,12 +85,12 @@ public class StudentMainFrame extends JFrame {
         btnPanel.add(writeBtn);
         btnPanel.add(logoutBtn);
         
-        // 상단 패널의 왼쪽에 가로 조립 패널을, 오른쪽에 버튼 패널을 배치
+        // 상단 패널의 왼쪽에 가로 패널을 오른쪽에 버튼 패널을 배치
         topPanel.add(leftPanel, BorderLayout.WEST);
         topPanel.add(btnPanel, BorderLayout.EAST);
         mainPanel.add(topPanel, BorderLayout.NORTH);
         
-        // 로그아웃 버튼 이벤트 리스너
+        // 로그아웃 버튼 이벤트 
         logoutBtn.addActionListener(e -> { 
             dispose(); 
             new LoginFrame().setVisible(true);
@@ -107,7 +106,7 @@ public class StudentMainFrame extends JFrame {
         JScrollPane scrollPane = new JScrollPane(table);
         mainPanel.add(scrollPane, BorderLayout.CENTER);
 
-        // 가이드 메시지
+        // 좌하단 가이드 메시지
         JPanel bottomPanel = new JPanel(new BorderLayout());
         JLabel guideLabel = new JLabel(" * 더블클릭: 상세 보기 | 접수대기 상태의 민원만 '민원 취소'가 가능합니다.", JLabel.LEFT);
         guideLabel.setForeground(Color.GRAY);
@@ -124,7 +123,7 @@ public class StudentMainFrame extends JFrame {
           mainPanel.add(bottomPanel, BorderLayout.SOUTH);
         add(mainPanel);
 
-        // 이벤트 리스너
+    
         writeBtn.addActionListener(e -> {
             new ComplaintFormFrame(currentUser.getUserId(), currentUser.getDepartment()).setVisible(true);
         });

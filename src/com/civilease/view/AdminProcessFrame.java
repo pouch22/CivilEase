@@ -104,7 +104,7 @@ public class AdminProcessFrame extends JFrame {
 
         add(mainPanel);
 
-        // 리스너
+    
         saveBtn.addActionListener(e -> handleSave());
         cancelBtn.addActionListener(e -> dispose());
     }
